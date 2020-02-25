@@ -1,0 +1,31 @@
+.nice-select {
+  clear: unset;
+  &:after {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+  &.wide .list,
+  &.open .list {
+    border-radius: 0;
+  }
+  
+  &.register-form__box-input {
+    border-bottom-width: 2px!important;
+    position: relative;
+    bottom: -2px;
+  }
+}
+.register-form__box-input-day,
+.register-form__box-input-month,
+.register-form__box-input-year {
+  &.open .list {
+    height: 198px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+      
+    }
+  }
+}
