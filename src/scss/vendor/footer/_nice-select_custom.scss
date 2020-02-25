@@ -1,8 +1,11 @@
 .nice-select {
   clear: unset;
+  border-radius: unset;
   &:after {
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
+    right: 5px;
+    top: 45%;
   }
   &.wide .list,
   &.open .list {
@@ -13,8 +16,14 @@
     border-bottom-width: 2px!important;
     position: relative;
     bottom: -2px;
+    position: relative;
+    z-index: 99;
+  }
+  .option.selected {
+    font-weight: 600;
   }
 }
+
 .register-form__box-input-day,
 .register-form__box-input-month,
 .register-form__box-input-year {
