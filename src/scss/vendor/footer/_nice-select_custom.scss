@@ -2,10 +2,9 @@
   clear: unset;
   border-radius: unset;
   &:after {
-    margin-top: -7px;
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
-    right: 2px;
+    right: 5px;
     top: 45%;
   }
   &.wide .list,
@@ -16,10 +15,9 @@
   &.register-form__box-input {
     border-bottom-width: 2px!important;
     position: relative;
-    bottom: -6px;
+    bottom: -2px;
     position: relative;
     z-index: 99;
-    
   }
   .option.selected {
     font-weight: 600;
