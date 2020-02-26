@@ -24,19 +24,19 @@ body {
 		float: left;
 		&-title {
 			font-family: "PT Sans";
-			font-style: normal;
-			font-weight: normal;
-			font-size: 49px;
-			margin: 0;
-			padding: 0;
-			position: absolute;
-			bottom: -6px;
-			letter-spacing: 0.5px;
-			line-height: 1em;
-			color: #fff;
-			right: calc(-100% + 14px);
-			transform: rotate(-90deg);
-			transform-origin: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 49px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: -2px;
+    letter-spacing: .5px;
+    line-height: 1em;
+    color: #fff;
+    right: calc(-100% + 11px);
+    transform: rotate(-90deg);
+    transform-origin: left;
 		}
 	}
 
@@ -61,8 +61,8 @@ body {
       z-index: 1;
     }
 		&-title {
-			margin-left: 20px;
-			margin-top: 38px;
+			margin-left: 2px;
+			margin-top: 39px;
 			margin-bottom: 0;
 			
 			font-style: normal;
@@ -73,9 +73,9 @@ body {
 			color: #111;
 		}
 		&-subtitle {
-      
-			margin-left: 20px;
-			margin-top: 0;
+			margin-left: 1.9px;
+			margin-top: -1px;
+			letter-spacing: -0.08px;
 			font-style: normal;
 			font-weight: 300;
 			font-size: 14px;
@@ -85,11 +85,12 @@ body {
 	}
 
 	&__box {
-		margin: 20px auto 0;
-		width: 485px;
-		height: 215px;
+		margin: 0 auto;
+		max-width: 485px;
+		min-height: 215px;
 		&-item {
-			margin-top: 16px;
+			margin-top: 8px;
+			margin-bottom: 6px;
 			display: inline-block;
 			width: 235px;
       position: relative;
@@ -100,9 +101,13 @@ body {
 				float: right;
 			}
 			&.nationality {
+				margin-top: 23px;
+
         z-index: 999;
 			}
 			&.email {
+				margin-top: 23px;
+
 				float: right;
 			}
 			&.birth-day {
@@ -131,29 +136,31 @@ body {
       position: relative;
 		}
 		&-input {
-			
+			margin-bottom: -13px;
 			padding: 0;
+			padding-bottom: 4px;
 			float: left;
 			width: 100%;
 			font-style: normal;
 			font-weight: 400;
 			font-size: 14px;
-			line-height: 16px;
+			line-height: 6px;
 			color: #111;
 			border: none;
-			outline: none;
-      border-bottom: 1px solid #f2f2f2;
-      background-color: transparent;
-      height: 25px;
-      z-index: 9;
-      position: relative;
-      cursor: pointer;
+			outline: 0;
+			border-bottom: 1px solid #f2f2f2;
+			background-color: transparent;
+			height: 19px;
+			z-index: 9;
+			position: relative;
+			cursor: pointer;
       &.error {
         color: red;
         border-bottom-color: #FF2222;
       }
-			&-email-correct {
-				opacity: 0;
+			&.email-correct::after {
+				content: '';
+				// opacity: 0;
 				position: absolute;
 				right: 0;
 				bottom: 10px;
@@ -204,7 +211,7 @@ body {
 			}
 			&.checkmark {
         
-				border: 1px solid #5a61ed;
+				border: 2px solid #5a61ed;
 				border-radius: 50%;
 				display: inline-block;
 				width: 14px;
@@ -226,16 +233,15 @@ body {
 	}
 
 	&__login {
-		position: absolute;
-		bottom: 43px;
-		left: 20px;
 		display: inline-block;
-		font-style: normal;
-		font-weight: 300;
-		font-size: 13px;
-		line-height: 15px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 15px;
     color: #000;
+		position: relative;
     z-index: 9;
+		margin-top: 90px;
 		&-link {
       color: #5a61ed;
       font-weight: 500;
@@ -244,23 +250,21 @@ body {
 
 	&__btn-complite {
 		width: 154px;
-		height: 32px;
-		position: absolute;
-		bottom: 32px;
-		right: 22px;
-		background: #5a61ed;
-		border: none;
-		border: unset;
-
-		font-family: "PT Sans";
-		font-style: normal;
-		font-weight: normal;
-		font-size: 14px;
-		line-height: 18px;
+    height: 32px;
+    background: #5a61ed;
+    border: unset;
+    font-family: "PT Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
     color: #fff;
-    outline: none;
+    outline: 0;
     cursor: pointer;
     z-index: 9;
+    position: relative;
+    float: right;
+    margin-top: 85px;
   }
   
   &__ok {
@@ -284,15 +288,71 @@ body {
   }
 }
 
-@media (max-width: 549px) {
-  .register-form{
-    max-height: 710px;
-      &__box-item {
-        margin-top: 16px;
-        display: inline-block;
-        width: 75%;
-        float: left!important;
-        position: relative;
-    }
-  }
+@media (max-width: 649px) {
+  .register-form {
+		max-height: 710px;
+		&__right-side {
+			width: calc(100% - 217px);
+			padding: 0 40px;
+		}
+		&__box {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			&-item {
+				margin-top: 16px;
+				display: inline-block;
+				width: 100%;
+				float: left!important;
+				position: relative;
+			}
+		}
+		&__login {
+			margin-top: 35px;
+			width: 100%;
+			text-align: center;
+		}
+		&__btn-complite {
+			float: unset;
+			width: 60%;
+			margin: 15px auto;
+			transform: translateX(-50%);
+			right: -50%;
+		}
+	}
+}
+
+@media (max-width: 449px) {
+	.register-form {
+		&__login {
+			margin-top: 20px;
+		}
+		&__box-input{
+			&-day {
+				width: 17%;
+			}
+			&-month {
+				width: 52%;
+				margin-left: 2%;
+			}
+			&-year {
+				width: 27%;
+			}
+		}
+		&__btn-complite {
+			float: unset;
+			width: 80%;
+		}
+		&__right-side {
+			width: 70%;
+    padding: 0 5%;
+		}
+		&__left-side {
+			width: 20%;
+			&-title {
+				right: -122px;
+    		font-size: calc(2.7em + 1vw);
+			}
+		}
+	}
 }
