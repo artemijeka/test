@@ -6,7 +6,7 @@
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
     right: 2px;
-    top: 45%;
+    top: 12px;
   }
   &.wide .list,
   &.open .list {
@@ -14,11 +14,8 @@
   }
   
   &.register-form__box-input {
-    border-bottom-width: 2px!important;
-    position: relative;
-    bottom: -6px;
-    position: relative;
-    z-index: 99;
+    padding-bottom: 23px;
+    border-bottom-width: 1px!important;
     
   }
   .option.selected {
