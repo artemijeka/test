@@ -1,0 +1,141 @@
+body {
+  background-color: #F2F2F2;
+}
+.register-form {
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 665px;
+  width: 100%;
+  max-height: 481px;
+  height: 100%;
+  &__left-side {
+    width: 137px;
+    height: inherit;
+    background-color: #5A61ED;
+    position: relative;
+    display: inline-block;
+    float: left;
+    &-title {
+      font-family: 'PT Sans';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 49px;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: -6px;
+      letter-spacing: .5px;
+      line-height: 1em;
+      color: #fff;
+      right: calc(-100% + 14px);
+      transform: rotate(-90deg);
+      transform-origin: left;
+    }
+  }
+
+  &__right-side {
+    height: 100%;
+    float: right;
+    width: 100%;
+    max-width: 528px;
+    position: relative;
+    display: block;
+    &-title {
+      margin-left: 20px;
+      margin-top: 38px;
+      margin-bottom: 0;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26px;
+      letter-spacing: -0.46px;
+      color: #111;
+    }
+    &-subtitle {
+      margin-left: 20px;
+      margin-top: 0;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+      color: #111;
+    }
+  }
+
+  &__box {
+    margin: 20px auto 0;
+    width: 485px;
+    height: 215px;
+    &-item {
+      margin-top: 16px;
+      display: inline-block;
+      width: 235px;
+      position: relative;
+      &.first-name {
+
+      }
+      &.last-name {
+        float: right;
+      }
+      &.nationality {
+
+      }
+      &.email {
+        float: right;
+      }
+    }
+    &-label {
+      float: left;
+      // font-family: Work Sans;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 14px;
+      color: #7C7C7C;
+    }
+    &-input {
+      // font-family: Work Sans;
+      padding: 0!important;
+      float: left!important;
+      width: 100%!important;
+      font-style: normal!important;
+      font-weight: 400!important;
+      font-size: 14px!important;
+      line-height: 16px!important;
+      color: #111!important;
+      border: none!important;
+      outline: none!important;
+      border-bottom: 1px solid #f2f2f2!important;
+      height: 25px!important;
+      &-email-correct {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+        width: 11px;
+        background-image: url('/img/icons/shape.svg');
+        height: 8px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+      }
+      &-day {
+        width: 52px!important;
+      }
+      &-month {
+        width: 88px!important;
+        margin-left: 3px;
+      }
+      &-year {
+        width: 85px!important;
+        float: right!important;
+      }
+    }
+
+  }
+}

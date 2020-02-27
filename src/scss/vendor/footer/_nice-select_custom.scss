@@ -1,6 +1,5 @@
 .nice-select {
   clear: unset;
-  border-radius: unset;
   &:after {
     margin-top: -7px;
     border-bottom: 1px solid #000;
@@ -23,9 +22,9 @@
   }
   .option.selected {
     font-weight: 600;
+    bottom: -2px;
   }
 }
-
 .register-form__box-input-day,
 .register-form__box-input-month,
 .register-form__box-input-year {
