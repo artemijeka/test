@@ -94,7 +94,7 @@ body {
 			width: 235px;
 			height: 42px;
       position: relative;
-      // z-index: 9;
+      z-index: 9;
 			&.first-name {
 			}
 			&.last-name {
@@ -111,6 +111,7 @@ body {
 			&.birth-day {
 				margin-top: 16px;
 				float: left;
+				z-index: 999;
 			}
 			&.gender {
 				margin-top: 16px;
