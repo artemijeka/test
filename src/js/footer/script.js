@@ -66,6 +66,16 @@ $(function() {
       }
     };
     this.passwordIsValid = function( pass, number = 1 ) {
+      //TODO: empty string should be with no error marker
+      // console.log(pass);
+      // console.log(number);
+      // if ( pass === null || pass === '' ) {
+      //   if ( number === 1 ) {
+      //     this.removeClassError(this.$password);
+      //   } else if ( number === 2 ) {
+      //     this.removeClassError(this.$confirmPassword);
+      //   }
+      // }
       if (pass.length >= 8) {//validate length        
         if ( pass.match(/[a-zа-яё]/) ) {//validate letter          
           if ( pass.match(/[A-ZА-ЯЁ]/) ) {//validate capital letter            
@@ -110,11 +120,13 @@ $(function() {
     this.addClassCorrect = function(target) {
       target.removeClass(classError);
       target.addClass(classCorrect);
-    };
+    };    
     this.addClassError = function(target) {
       target.removeClass(classCorrect);
       target.addClass(classError);
-      console.log('addClassError SUCCESS');
+    };
+    this.removeClassError = function(target) {
+      target.removeClass(classError);
     };
 
   }
@@ -140,6 +152,18 @@ $(function() {
   $('#email').on( "focus, blur, click, focusout, keyup", function(e){    
     validateForm.setEmail( $(this).val() );
     validateForm.emailIsCorrect();
+
+  });
+
+
+
+  $('#password, #confirmPassword').on('focus', function() {
+    $('#passwordNotice').removeClass('o-0');
+    $('#passwordNotice').addClass('o-1');
+  });
+  $('#password, #confirmPassword').on('focusout', function() {
+    $('#passwordNotice').removeClass('o-1');
+    $('#passwordNotice').addClass('o-0');
   });
 
 

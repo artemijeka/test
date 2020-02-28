@@ -125,10 +125,14 @@ body {
 				margin-top: 17px;
 				float: right;
 			}
+			&.password-notice {
+				    width: 75%;
+    margin-top: 1em;
+    font-size: 0.8em;
+			}
 		}
 		&-label {
-			float: left;
-      
+			float: left;      
 			font-style: normal;
 			font-weight: 300;
 			font-size: 12px;
@@ -161,21 +165,22 @@ body {
         border-bottom-color: #FF2222;
       }
 			&.correct + i {
-				opacity: 1;
-				padding: 0;
-				margin: 0;
-				position: absolute;		
-				z-index: 999;	
-				right: 0;
-				bottom: 12px;			
-				width: 11px;
-				background-image: url("/img/icons/v.svg");
-				height: 8px;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: contain;
-				display: inline-block;
-				transition: 500ms;
+				    opacity: 1;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 9;
+    right: -2px;
+    bottom: 1px;
+    width: 15px;
+    background-image: url(/img/icons/v.svg);
+    height: 26px;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    display: inline-block;
+    transition: .5s;
+    background-color: #fff;
 			}
 			&-day {
         width: 24%;
@@ -246,7 +251,7 @@ body {
     color: #000;
 		position: relative;
     z-index: 9;
-		margin-top: 85px;
+		margin-top: 25px;
 		&-link {
       color: #5a61ed;
       font-weight: 500;
@@ -267,11 +272,12 @@ body {
     padding-right: 10px;
     color: #fff;
     outline: 0;
-    cursor: pointer;
     z-index: 9;
     position: relative;
     float: right;
-    margin-top: 79px;
+    margin-top: 19px;
+    cursor: pointer;
+
   }
   
   &__ok {
@@ -297,7 +303,7 @@ body {
 
 @media (max-width: 649px) {
   .register-form {
-		max-height: 710px;
+		max-height: 735px;
 		&__right-side {
 			width: calc(100% - 217px);
 			padding: 0 40px;
@@ -312,27 +318,33 @@ body {
 				width: 100%;
 				float: left!important;
 				position: relative;
+				&.password-notice  {
+					width: 100%;
+					height: auto;
+					text-align: center;
+				}
 			}
 		}
 		&__login {
-			margin-top: 35px;
+			margin-top: 0;
 			width: 100%;
 			text-align: center;
 		}
 		&__btn-complite {
 			float: unset;
 			width: 60%;
-			margin: 15px auto;
+			margin: 5px auto;
 			transform: translateX(-50%);
 			right: -50%;
 		}
 	}
 }
 
-@media (max-width: 449px) {
+@media (max-width: 469px) {
 	.register-form {
+		max-height: 765px;
 		&__login {
-			margin-top: 20px;
+			margin-top: 0;
 		}
 		&__box-input{
 			&-day {
