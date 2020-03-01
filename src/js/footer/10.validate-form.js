@@ -138,15 +138,6 @@ $(function() {
 
 
 
-  $(document).on('click', '#submitForm', function(e) {
-    e.preventDefault();
-    if (true/* all right */) {
-      
-    }
-  });
-
-
-
   $('#email').on( "focus, blur, click, focusout, keyup", function(e){    
     validateForm.setEmail( $(this).val() );
     validateForm.emailIsCorrect();

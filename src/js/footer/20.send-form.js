@@ -1,26 +1,33 @@
-$(document).ready(function () {
-  console.log('TEST');
-  //submit callback form
-  $('#submitForm').on('click', function(e){console.log('click submitForm');});
+$(function () {
+
+
+
   $('#registrationForm').submit(function(event) {
     event.preventDefault();
-    console.log('$(registrationForm).submit()');
     $.ajax({
       type: $(this).attr('method'),
       url: $(this).attr('action'),
       data: $(this).serialize(),
       success: function(resp) {
-        console.log(resp);
-        if (resp === 'error') {
-          console.log('error');
-        } else if (resp === 'success') {
-          console.log('success');
+        // console.log(resp);
+        if (resp === 'success: mail function send success') {
+          console.log('success: mail function send success');
+          $('#formWrap').hide();
+          $('#formSended').show();
+          // setTimeout(() => {
+          //   $('#formSended').hide();
+          //   $('#formWrap').show();
+          // }, 1500);
+        } else {
+          console.log(resp);
         }
       },
       error: function (resp) {
-        console.log('error');
+        console.log('error: ajax script send error');
       }
     });
   });
+
+
 
 });/* $(document.ready() */
