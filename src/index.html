@@ -41,10 +41,10 @@
 
             <i class="background-img"></i>
 
-            <h1 class="register-form__right-side-title">New user?</h1>
-            <h2 class="register-form__right-side-subtitle">Use the form below to create your account.</h2>
+            <h1 class="register-form__right-side-title slide-bottom-02">New user?</h1>
+            <h2 class="register-form__right-side-subtitle slide-bottom-02">Use the form below to create your account.</h2>
 
-            <form action="./mail.php" method="GET" id="registrationForm" class="register-form__box">
+            <form action="./mail.php" method="POST" id="registrationForm" class="register-form__box">
               <!-- Start Hidden Fields -->
               <input type="hidden" name="form_subject" value="Запрос с сайта" autocomplete="off">
               <input type="hidden" name="project_name" value="" autocomplete="off">
@@ -60,19 +60,19 @@
               <input type="hidden" class="hidden" autocomplete="off" name="Request URI" value="<?=$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" />
               <!-- END service information -->
 
-              <div class="register-form__box-item first-name">
+              <div class="register-form__box-item first-name slide-top-02">
                 <label class="register-form__box-label" for="firstName">First Name</label>
                 <br>
                 <input class="register-form__box-input" type="text" name="First Name" id="firstName">
               </div>
 
-              <div class="register-form__box-item last-name">
+              <div class="register-form__box-item last-name slide-top-04">
                 <label class="register-form__box-label" for="lastName">Last Name</label>
                 <br>
                 <input class="register-form__box-input" type="text" name="Last Name" id="lastName">
               </div>  
 
-              <div class="register-form__box-item nationality">
+              <div class="register-form__box-item nationality slide-top-08">
                 <label class="register-form__box-label" for="nationality">Nationality</label>
                 <br>
                 <select class="register-form__box-input wide" id="nationality" name="Nationality">
@@ -83,13 +83,13 @@
                 </select>
               </div>
 
-              <div class="register-form__box-item email">
+              <div class="register-form__box-item email slide-top-1">
                 <label class="register-form__box-label" for="email">E-mail</label>
                 <br>
                 <input class="register-form__box-input" type="email" name="Email" id="email"><i></i>
               </div>
 
-              <div class="register-form__box-item birth-day">
+              <div class="register-form__box-item birth-day slide-top-12">
                 <label class="register-form__box-label" for="birthDay">Date of Birth</label>
                 <br>
                 <select class="register-form__box-input register-form__box-input-day" id="birthDay" name="Birth Day">
@@ -246,7 +246,7 @@
                 </select>
               </div>
 
-              <div class="register-form__box-item gender">
+              <div class="register-form__box-item gender slide-top-14">
                 <label class="register-form__box-label">Gender</label>
                 <br>
                 <label for="genderMale" class="register-form__box-input-title">
@@ -261,13 +261,13 @@
                 </label>          
               </div>
 
-              <div class="register-form__box-item password">
+              <div class="register-form__box-item password slide-top-16">
                 <label class="register-form__box-label" for="password">Password</label>
                 <br>
                 <input class="register-form__box-input" type="password" name="password" id="password"><i></i>
               </div>
 
-              <div class="register-form__box-item conf-password">
+              <div class="register-form__box-item conf-password slide-top-18">
                 <label class="register-form__box-label" for="confirmPassword">Confirm Password</label>
                 <br>
                 <input class="register-form__box-input" type="password" name="confirm_password" id="confirmPassword"><i></i>
@@ -277,9 +277,9 @@
                 Please enter a password of uppercase and lowercase letters and numbers, at least 8 characters.
               </div>
 
-              <span class="register-form__login">Have an account? <a href="#" class="register-form__login-link">Login</a></span>
+              <span class="register-form__login slide-top-2">Have an account? <a href="#" class="register-form__login-link">Login</a></span>
 
-              <input type="submit" class="register-form__btn-complete" value="Complete Signup" name="submit">
+              <input type="submit" class="register-form__btn-complete slide-top-2" value="Complete Signup" name="submit">
             </form>
 
           </div><!-- /.register-form__wrap -->

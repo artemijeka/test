@@ -1,6 +1,3 @@
-
-
-
   /**
    * @param {'#email'} selectorEmail 
    * @param {'#password'} selectorPassword 
@@ -32,6 +29,10 @@
       }
     };
     this.password = null;
+    // this.password = {
+    //   first: null,
+    //   second: null
+    // };
     this.$password = $(selectorPassword);
     this.confirmPassword = null;
     this.$confirmPassword = $(selectorConfirmPassword);
@@ -64,6 +65,10 @@
       }
     };
     this.passwordIsValid = function( pass, number = 1 ) {
+      if (pass===null) {
+        console.log('Password is empty...');
+        return false;
+      }
       //TODO: empty string should be with no error marker
       // console.log(pass);
       // console.log(number);
