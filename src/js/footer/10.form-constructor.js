@@ -1,8 +1,5 @@
-$(function() {
 
-  let validateForm = new ValidateForm('#email', '#password', '#confirmPassword', 'correct', 'error');
 
-  //console.log(validateForm);
 
   /**
    * @param {'#email'} selectorEmail 
@@ -11,7 +8,7 @@ $(function() {
    * @param {'correct'} classCorrect 
    * @param {'error'} classError 
    */
-  function ValidateForm( selectorEmail, selectorPassword, selectorConfirmPassword, classCorrect, classError ) {
+  function ValidateForm( selectorEmail, selectorPassword, selectorConfirmPassword, passwordNotice, classCorrect, classError ) {
 
     this.email = null;
     this.$email = $(selectorEmail);
@@ -38,15 +35,18 @@ $(function() {
     this.$password = $(selectorPassword);
     this.confirmPassword = null;
     this.$confirmPassword = $(selectorConfirmPassword);
+    this.$passwordNotice = $(passwordNotice);
     this.setPassword = function(number, newValue) {
       if (number === 1) {
         this.password = newValue;
         if ( this.passwordIsValid(this.password, 1) ) {
           this.addClassCorrect( this.$password );
+          this.addClassCorrect( this.$passwordNotice );
           if ( this.passwordsIsEqual() ) {
             this.addClassCorrect( this.$confirmPassword );
           }
         } else {
+          this.addClassError( this.$passwordNotice );
           this.addClassError( this.$password );
           this.addClassError( this.$confirmPassword );//auto set not valid for second password
         }
@@ -80,36 +80,37 @@ $(function() {
             if ( pass.match(/\d/) ) {//validate number
               //console.log('Password is valid...');
               if (number === 1) {//for first password checking only valid
+                console.log('Password is valid...');
                 return true;
               } else if (number === 2) {
                 if (this.passwordsIsEqual()) {
+                  console.log('Passwords is valid and identical...');
                   return true;
-                } else {//second password is not equal with first password
+                } else {
+                  console.log('Passwords is not identical...');
                   return false;
                 }
               }              
             } else {
-              //console.log('Please write one or more digitals...');
-              return false;            }
+              console.log('Please write one or more digitals...');
+              return false;
+            }
           } else {
-            //console.log('Please write one or more uppercase letter...');
+            console.log('Please write one or more uppercase letter...');
             return false;
           }
         } else {
-          //console.log('Please write one or more letter...');
+          console.log('Please write one or more letter...');
           return false;
         }
       } else {
-        //console.log('Please write more then 8 simbols...');
+        console.log('Please write more then 8 simbols...');
         return false;
       }
     };
-    this.setConfirmPassword = function(newValue) {
-      this.confirmPassword = newValue;
-    };
     this.passwordsIsEqual = function() {
       if ( this.confirmPassword === this.password ) {
-          //console.log('Confirm password is equal...');
+          console.log('Confirms password is equal...');
           return true;        
       } else {
         return false;
@@ -128,45 +129,3 @@ $(function() {
     };
 
   }
-
-
-  
-  window.onload = function() {    
-    validateForm.setEmail( $('#email').val() );
-    validateForm.emailIsCorrect();
-  }();
-
-
-
-  $('#email').on( "focus, blur, click, focusout, keyup", function(e){    
-    validateForm.setEmail( $(this).val() );
-    validateForm.emailIsCorrect();
-
-  });
-
-
-
-  $('#password, #confirmPassword').on('focus', function() {
-    $('#passwordNotice').removeClass('o-0');
-    $('#passwordNotice').addClass('o-1');
-  });
-  $('#password, #confirmPassword').on('focusout', function() {
-    $('#passwordNotice').removeClass('o-1');
-    $('#passwordNotice').addClass('o-0');
-  });
-
-
-
-  $('#password').on( "focusout, keyup", function(e){    
-    validateForm.setPassword( 1, $(this).val() );    
-  });
-
-
-
-  $('#confirmPassword').on( "focusout, keyup", function(e){    
-    validateForm.setPassword( 2, $(this).val() );  
-  });
-
-
-
-});
