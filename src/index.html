@@ -42,7 +42,22 @@
         <h1 class="register-form__right-side-title">New user?</h1>
         <h2 class="register-form__right-side-subtitle">Use the form below to create your account.</h2>
 
-        <form action="POST" class="register-form__box">
+        <form method="POST" action="mail.php" id="registrationForm" class="register-form__box">
+            <!-- Start Hidden Fields -->
+            <input type="hidden" name="form_subject" value="Запрос с сайта" autocomplete="off">
+            <input type="hidden" name="project_name" value="" autocomplete="off">
+            <input type="hidden" name="robot_email" value="robot@test.ru" autocomplete="off">
+            <input type="hidden" name="manager_email" value="artem.kuznecov.samara@gmail.com" autocomplete="off">
+            <input type="hidden" name="hidden_copy_email" value="work@master-artem.ru" autocomplete="off">
+            <input type="hidden" name="user_name_b" value="" autocomplete="off">
+            <!-- END Hidden Fields -->
+            <input type="email" name="user_email_b" value="" class="hidden" autocomplete="off">
+            <input type="text" name="user_city_b" value="" class="p-a zi-999" style="border-color: transparent">
+            <style>.hidden{display:none}.p-a{position:absolute}.zi-999{z-index:-999}</style>
+            <!-- END check -->
+            <input type="hidden" class="hidden" autocomplete="off" name="Адрес запроса" value="<?=$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>" />
+            <!-- END service information -->
+
           <div class="register-form__box-item first-name">
             <label class="register-form__box-label" for="firstName">First Name</label>
             <br>

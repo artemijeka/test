@@ -165,22 +165,24 @@ body {
         border-bottom-color: #FF2222;
       }
 			&.correct + i {
-				    opacity: 1;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    z-index: 9;
-    right: -2px;
-    bottom: 1px;
-    width: 15px;
-    background-image: url(/img/icons/v.svg);
-    height: 26px;
-    background-position: center 40%;
-    background-repeat: no-repeat;
-    background-size: 11px;
-    display: inline-block;
-    transition: .5s;
-    background-color: #fff;
+				opacity: 1;
+				padding: 0;
+				margin: 0;
+				position: absolute;
+				z-index: 9;
+				right: -2px;
+				bottom: 2px;
+				width: 15px;
+				background-image: url(/img/icons/v.svg);
+				height: 24px;
+				background-position: center 40%;
+				background-repeat: no-repeat;
+				background-size: 11px;
+				display: inline-block;
+				transition: .5s;
+			}
+			&.correct#email + i {
+				background-color: #fff;
 			}
 			&-day {
         width: 24%;

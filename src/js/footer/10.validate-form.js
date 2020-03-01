@@ -1,7 +1,5 @@
 $(function() {
 
-  $('select').niceSelect();
-
   let validateForm = new ValidateForm('#email', '#password', '#confirmPassword', 'correct', 'error');
 
   //console.log(validateForm);
@@ -53,14 +51,14 @@ $(function() {
           this.addClassError( this.$confirmPassword );//auto set not valid for second password
         }
       } else if (number === 2) {
-        console.log('setPassword 2');
+        // console.log('setPassword 2');
         this.confirmPassword = newValue;
         if ( this.passwordIsValid(this.confirmPassword, 2) ) {
-          console.log('passwordIsValid 2');
+          // console.log('passwordIsValid 2');
           this.addClassCorrect( this.$confirmPassword );
         } else {
-          console.log('passwordIs NOT Valid 2');
-          console.log( this.$confirmPassword );
+          // console.log('passwordIs NOT Valid 2');
+          // console.log( this.$confirmPassword );
           this.addClassError( this.$confirmPassword );
         }
       }
