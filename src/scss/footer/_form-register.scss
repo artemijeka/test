@@ -264,7 +264,7 @@ body {
 		}
 	}
 
-	&__btn-complite {
+	&__btn-complete {
 		width: 155px;
     height: 31px;
     background: #5a61ed;
@@ -283,6 +283,11 @@ body {
     float: right;
     margin-top: 19px;
     cursor: pointer;
+		&.error {
+			animation-name: shake;
+			animation-iteration-count: 5;
+			animation-duration: 100ms;
+		}
 
   }
   
@@ -358,6 +363,7 @@ body {
 			margin: 5px auto;
 			transform: translateX(-50%);
 			right: -50%;
+		
 		}
 	}
 }

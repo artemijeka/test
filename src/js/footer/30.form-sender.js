@@ -15,12 +15,25 @@ $('#registrationForm').submit(function(event) {
           $('.register-form__background').addClass('to-black');
         } else {
           console.log(resp);
+          $('.register-form__btn-complete').addClass('error');
+          setTimeout(() => {
+            $('.register-form__btn-complete').removeClass('error');
+          }, 1000);
         }
       },
       error: function (resp) {
         console.log('error: ajax script send error');
+        $('.register-form__btn-complete').addClass('error');
+        setTimeout(() => {
+          $('.register-form__btn-complete').removeClass('error');
+        }, 1000);
       }
     });
+  } else {
+    $('.register-form__btn-complete').addClass('error');
+    setTimeout(() => {
+      $('.register-form__btn-complete').removeClass('error');
+    }, 1000);
   }    
 });
 

@@ -13,3 +13,21 @@ body.to-black {
 .o-1 {
   opacity: 1;
 }
+
+@keyframes shake {
+	from {
+		transform: rotate(0);
+	}
+	25% {
+		transform: rotate(-10deg);
+	}
+	50% {
+		transform: rotate(0);
+	}
+	75% {
+		transform: rotate(10deg);
+	}
+	to {
+		transform: rotate(0);
+	}
+}
