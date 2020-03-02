@@ -132,5 +132,11 @@
     this.removeClassError = function(target) {
       target.removeClass(classError);
     };
+    // this.reset = function() {
+    //   this.setPassword(1, null);
+    //   this.setPassword(2, null);
+    //   $password.removeClass(classCorrect);
+    //   $confirmPassword.removeClass(classCorrect);
+    // };
 
   }

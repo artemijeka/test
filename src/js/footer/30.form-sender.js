@@ -16,12 +16,13 @@
       success: function(resp) {
         // console.log(resp);
         if (resp === 'success: mail function send success') {
-          console.log('success: mail function send success');    
-          $registrationForm[0].reset(); 
+          console.log('success: mail function send success');  
+          // document.querySelector('#registrationForm').reset();
           $('.register-form__wrap').addClass('hidden');
-          $('.register-form__ok').removeClass('hidden');
+          $('.register-form__ok').removeClass('hidden'); 
           $('.register-form__background').addClass('to-black');
           $('.register-form__btn-complete').addClass('slide-top-2');
+          // document.getElementById('#registrationForm').reset();
         } else {
           console.log(resp);
           $('.register-form__btn-complete').addClass('error');
