@@ -52,13 +52,12 @@ body {
     overflow: hidden;
     padding: 0 20px;
     .background-img {
-			background: url(../../img/icons/user.svg) center / contain no-repeat;
 			width: 400px;
 			height: 355px;
 			display: inline-block;
 			position: absolute;
 			bottom: 0;
-			right: -46px;
+			right: -96px;
 			z-index: -1;
     }
 		&-title {
@@ -84,6 +83,9 @@ body {
 			font-size: 14px;
 			line-height: 16px;
 			color: #111;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 	}
 

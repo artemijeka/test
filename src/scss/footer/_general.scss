@@ -1,15 +1,10 @@
-body.to-black {
-  background-color: rgba(0,0,0,0.55);
-}
-
-.o-0 {
-  opacity: 0;
-}
-
 .td-300 {
   transition-duration: 300ms;
 }
 
 .o-1 {
   opacity: 1!important;
+}
+body.to-black {
+  background-color: rgba(0,0,0,0.55);
 }

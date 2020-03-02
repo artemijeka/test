@@ -1,0 +1,21 @@
+.path-set {
+  stroke: #F9FAFF;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  stroke-width: 80;
+}
+
+/* styles for animation */
+.path-anim-1 {    
+  animation: anim-1 4.8s ease-in 2.2s forwards;
+}
+
+@keyframes anim-1 {
+  0% {
+    stroke-width: 80;
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
