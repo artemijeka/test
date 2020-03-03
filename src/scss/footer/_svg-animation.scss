@@ -1,21 +1,30 @@
 .path-set {
   stroke: #F9FAFF;
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  stroke-width: 80;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+  stroke-width: 60;
+  -ms-stroke-dashoffset: 0!important;
+  -ms-stroke-dasharray: 0!important;
 }
-
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .path-set {
+    stroke-dashoffset: 0!important;
+    stroke-dasharray: 0!important;
+  }
+}
 /* styles for animation */
 .path-anim-1 {    
-  animation: anim-1 4.8s ease-in 2.2s forwards;
-}
-
+  animation: anim-1 6s ease-in-out 1.2s forwards;
+  }
+  
 @keyframes anim-1 {
   0% {
-    stroke-width: 80;
-    stroke-dashoffset: 2000;
-  }
+    stroke-dashoffset: 2200;
+  }    
   100% {
     stroke-dashoffset: 0;
   }
-}
+  }
+
+

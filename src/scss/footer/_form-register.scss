@@ -96,10 +96,10 @@ body {
 		min-height: 215px;
 		&-item {
 			display: inline-block;
-			width: 235px;
+			width: 237px;
 			height: 42px;
-      position: relative;
-      z-index: 9;
+			position: relative;
+			z-index: 9;
 			// opacity: 0;	
 			&.first-name {
 			}
@@ -108,7 +108,7 @@ body {
 			}
 			&.nationality {
 				margin-top: 16px;
-        z-index: 9999;
+        		z-index: 9999;
 			}
 			&.email {
 				margin-top: 16px;
@@ -146,9 +146,9 @@ body {
 			font-weight: 300;
 			font-size: 12px;
 			line-height: 1em;
-      color: #7c7c7c;
-      z-index: 9;
-      position: relative;
+		color: #7c7c7c;
+		z-index: 9;
+		position: relative;
 		}
 		&-input {
 			padding: 0;
@@ -165,14 +165,24 @@ body {
 			border: none;
 			outline: 0;
 			border-bottom: 1px solid #f2f2f2;
+			border-radius: 0;
 			background-color: transparent;
 			z-index: 9;
 			position: relative;
 			cursor: pointer;
-      &.error {
-        color: red;
-        border-bottom-color: #FF2222;
-      }
+			&.email {
+				bottom: 3px;
+    			padding-bottom: 3px;
+			}
+			&-date-wrap {
+				display: inline-flex;
+				justify-content: space-between;
+				width: 100%;
+			}
+			&.error {
+				color: red;
+				border-bottom-color: #FF2222;
+			}
 			&.correct + i {
 				opacity: 1;
 				padding: 0;
@@ -194,24 +204,27 @@ body {
 				background-color: #fff;
 			}
 			&-day {
-        width: 24%;
+				   width: 24%;
+				       bottom: 1px;
+				//    margin-right: 1em;
 			}
 			&-month {
 				width: 39%;
-				margin-left: 4%;
+				    bottom: 1px;
+				// margin-right: 1em;
 			}
 			&-year {
 				width: 29%;
+				    bottom: 1px;
 				float: right;
 			}
 			&-title {				
 				margin-right: 22px;
-        cursor: pointer;
-        z-index: 9;
+				cursor: pointer;
+				z-index: 9;
 				position: relative;
 			}
-			&-gender {
-        
+			&-gender {        
 				position: absolute;
 				opacity: 0;
 				&:checked ~ .checkmark {
@@ -242,54 +255,54 @@ body {
 			}
 			&-title,
 			&-gender {
-        padding: 0;
+       			padding: 0;
 				width: auto;
 				display: inline-block;
 				float: left;
 				height: 14px;
-        font-size: 14px;
-        
+        		font-size: 14px;        
 			}
 		}
 	}
 
 	&__login {
 		display: inline-block;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 1em;
-    color: #000;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 13px;
+		line-height: 1em;
+		color: #000;
 		position: relative;
-    z-index: 9;
-		margin-top: 25px;
+    	z-index: 9;
+		margin-top: 37px;
 		opacity: 0;
 		&-link {
-      color: #5a61ed;
-      font-weight: 500;
+			color: #5a61ed;
+			font-weight: 500;
 		}
 	}
 
 	&__btn-complete {
 		width: 155px;
-    height: 31px;
-    background: #5a61ed;
-    border: unset;
-    font-family: "PT Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1em;
-    padding-bottom: 5px;
-    padding-right: 10px;
-    color: #fff;
-    outline: 0;
-    z-index: 9;
-    position: relative;
-    float: right;
-    margin-top: 19px;
+		height: 31px;
+		background: #5a61ed;
+		border: unset;
+		border: none;
+		font-family: "PT Sans";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1em;
+		padding-bottom: 5px;
+		padding-right: 10px;
+		color: #fff;
+		outline: 0;
+		z-index: 9;
+		position: relative;
+		float: right;
+		margin-top: 31px;
 		// opacity: 0;
-    cursor: pointer;
+    	cursor: pointer;
 		&.error {
 			animation-name: shake;
 			animation-iteration-count: 5;
@@ -384,8 +397,7 @@ body {
 				width: 17%;
 			}
 			&-month {
-				width: 52%;
-				margin-left: 2%;
+				width: 49%;
 			}
 			&-year {
 				width: 27%;
