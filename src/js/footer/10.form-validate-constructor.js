@@ -132,11 +132,18 @@
     this.removeClassError = function(target) {
       target.removeClass(classError);
     };
-    // this.reset = function() {
-    //   this.setPassword(1, null);
-    //   this.setPassword(2, null);
-    //   $password.removeClass(classCorrect);
-    //   $confirmPassword.removeClass(classCorrect);
-    // };
+    this.reset = function() {
+      this.setPassword(1, null);
+      this.setPassword(2, null);
+      this.$password.val('');
+      this.$confirmPassword.val('');
+      this.$password.removeClass(classCorrect);
+      this.$confirmPassword.removeClass(classCorrect);
+      this.$password.removeClass(classError);
+      this.$confirmPassword.removeClass(classError);
+      this.$email.val('');
+      this.$email.removeClass(classCorrect);
+      this.$email.removeClass(classError);
+    };
 
   }

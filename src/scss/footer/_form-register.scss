@@ -49,8 +49,11 @@ body {
     max-width: 528px;
     position: relative;
     display: block;
-    overflow: hidden;
-    padding: 0 20px;
+		overflow: hidden;
+		padding: 0 20px;
+		&.mobile {
+			overflow-y: auto;
+		}
     .background-img {
 			width: 400px;
 			height: 355px;
