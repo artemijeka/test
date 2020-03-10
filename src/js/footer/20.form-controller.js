@@ -1,5 +1,5 @@
 
-  let validateForm = new ValidateForm('#email', '#password', '#confirmPassword', '#passwordNotice', 'correct', 'error');
+  let validateForm = new ValidateForm('#email', '#password', '#confirmPassword', '#passwordNotice', 'correct', 'error', 'visible');
 
 
   window.onload = function() {    
@@ -10,18 +10,17 @@
 
   $('#email').on( "focus, blur, click, focusout, keyup", function(e){    
     validateForm.setEmail( $(this).val() );
-    validateForm.emailIsCorrect();
   });
 
 
-  $('#password, #confirmPassword').on('focus', function() {
-    $('#passwordNotice').removeClass('o-0');
-    $('#passwordNotice').addClass('o-1');
+  $('input[type=password]').on('click', function() {
+    $('#passwordNotice').addClass('visible');
   });
-  $('#password, #confirmPassword').on('focusout', function() {
-    $('#passwordNotice').removeClass('o-1');
-    $('#passwordNotice').addClass('o-0');
-  });
+
+
+  // $('#password, #confirmPassword').on('focusout', function() {
+  //   $('#passwordNotice').removeClass('visible');
+  // });
 
 
   $('#password').on( "focusout, keyup", function(e){    

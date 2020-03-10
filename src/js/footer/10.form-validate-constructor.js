@@ -4,17 +4,22 @@
    * @param {'#confirmPassword'} selectorConfirmPassword 
    * @param {'correct'} classCorrect 
    * @param {'error'} classError 
+   * @param {'visible'} classVisible
    */
-  function ValidateForm( selectorEmail, selectorPassword, selectorConfirmPassword, passwordNotice, classCorrect, classError ) {
+  function ValidateForm( selectorEmail, selectorPassword, selectorConfirmPassword, selectorPasswordNotice, classCorrect, classError ) {
 
     this.email = null;
     this.$email = $(selectorEmail);
     this.setEmail = function(newValue) {
+      // console.log('this.setEmail');
       this.email = newValue;
+      this.emailIsCorrect();
     };
     this.emailIsCorrect = function(email = this.email) {
+      // console.log('this.emailIsCorrect');
       if (email === null || email === '') {
         this.$email.removeClass(classError);
+        this.$email.removeClass(classCorrect);
       } else {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if ( regex.test(email) ) {
@@ -36,7 +41,7 @@
     this.$password = $(selectorPassword);
     this.confirmPassword = null;
     this.$confirmPassword = $(selectorConfirmPassword);
-    this.$passwordNotice = $(passwordNotice);
+    this.$passwordNotice = $(selectorPasswordNotice);
     this.setPassword = function(number, newValue) {
       if (number === 1) {
         this.password = newValue;
@@ -45,7 +50,10 @@
           this.addClassCorrect( this.$passwordNotice );
           if ( this.passwordsIsEqual() ) {
             this.addClassCorrect( this.$confirmPassword );
-          }
+          } 
+          // else {
+          //   this.addClassError( this.$passwordNotice );
+          // }
         } else {
           this.addClassError( this.$passwordNotice );
           this.addClassError( this.$password );
