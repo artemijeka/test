@@ -1,27 +1,7 @@
 'use strict';
+
 /* config */
-const DEV = {
-    ROOT: './dev/',
-    FILES: [
-        './dev/*.*',
-        './dev/**/fonts/*.*',
-        './dev/**/img/**/*.*',
-        './dev/**/.htaccess',
-        './dev/**/*.html',
-        // './src/**/*.php',
-        // './src/**/*.settings'
-    ],
-    // HTML: './dev/**/*.html',
-    CSS: {
-        HEADER: ['./dev/css/vendor/header.min.css', './dev/css/header.min.css'],
-        FOOTER: ['./dev/css/vendor/footer.min.css', './dev/css/footer.min.css'],
-    },
-    JS: {
-        HEADER: ['./dev/js/vendor/header.min.js', './dev/js/header.min.js'],
-        FOOTER: ['./dev/js/vendor/footer.min.js', './dev/js/footer.min.js'],
-    },
-    IMAGES: './dev/img/',
-};
+
 
 const SRC = {
     FILES: [
@@ -37,30 +17,53 @@ const SRC = {
     ],
     FONTS: ['./src/fonts/*'],
     IMAGES: './src/img/**/*.+(ico|svg|png|jpg|gif|webp)',
+    SCSS: {
+        HEADER: ['./src/scss/header/*.scss'],
+        VENDOR: {
+            HEADER: ['./src/scss/vendor/header/*.scss'],
+            FOOTER: ['./src/scss/vendor/footer/*.scss'],
+        },
+        FOOTER: ['./src/scss/footer/*.scss'],
+    },
+    JS: {
+        HEADER: './src/js/header/*.js',
+        FOOTER: './src/js/footer/*.js',
+        VENDOR: {
+            HEADER: './src/js/vendor/header/*.js',
+            FOOTER: './src/js/vendor/footer/*.js',
+        },
+    },
 };
 
 
+const DEV = {
+    ROOT: './dev/',
+    FILES: [
+        './dev/*.*',
+        './dev/**/fonts/*.*',
+        './dev/**/img/**/*.*',
+        './dev/**/.htaccess',
+        './dev/**/*.html',
+        // './src/**/*.php',
+        // './src/**/*.settings'
+    ],
+    // HTML: './dev/**/*.html',
+    CSS: {
+        ROOT: './dev/css/',
+        VENDOR: './dev/css/vendor/',
+        HEADER: ['./dev/css/vendor/header.min.css', './dev/css/header.min.css'],
+        FOOTER: ['./dev/css/vendor/footer.min.css', './dev/css/footer.min.css'],
+    },
+    JS: {
+        ROOT: './dev/js/',
+        VENDOR: './dev/js/vendor/',
+        HEADER: ['./dev/js/vendor/header.min.js', './dev/js/header.min.js'],
+        FOOTER: ['./dev/js/vendor/footer.min.js', './dev/js/footer.min.js'],
+    },
+    IMAGES: './dev/img/',
+    FONTS: ['./dev/fonts/'],
+};
 
-const DEV_FONTS = ['./dev/fonts/'];
-
-const SRC_SCSS_HEADER = ['./src/scss/header/*.scss'];
-const DEV_CSS_HEADER = './dev/css/';
-
-const SRC_SCSS_FOOTER = ['./src/scss/footer/*.scss'];
-const DEV_CSS_FOOTER = './dev/css/';
-
-const SRC_SCSS_VENDOR_HEADER = ['./src/scss/vendor/header/*.scss'];
-const SRC_SCSS_VENDOR_FOOTER = ['./src/scss/vendor/footer/*.scss'];
-const DEV_CSS_VENDOR = './dev/css/vendor/';
-
-const SRC_JS_VENDOR_HEADER = './src/js/vendor/header/*.js';
-const SRC_JS_VENDOR_FOOTER = './src/js/vendor/footer/*.js';
-const DEV_JS_VENDOR = './dev/js/vendor/';
-
-const SRC_JS_HEADER = './src/js/header/*.js';
-const SRC_JS_FOOTER = './src/js/footer/*.js';
-const DEV_JS_HEADER = './dev/js/';
-const DEV_JS_FOOTER = './dev/js/';
 
 const AUTOPREFIXER_BROWSERS = ['last 9 version', 'safari 5', 'ie 8', 'ie 9', 'ie 10', 'opera 12.1', 'ios 6', 'android 4'];
 /* end config */
@@ -98,7 +101,7 @@ gulp.task('clean_dev', function () {
         .pipe(clean());
 });
 
-gulp.task('moveFiles', function () {
+gulp.task('move_files', function () {
     return gulp.src(SRC.FILES)
         .pipe(gulp.dest(DEV.ROOT));
 });
@@ -115,10 +118,10 @@ gulp.task('minhtml', function () {
 
 gulp.task('scss_header', function () {
     //сначала очистка
-    gulp.src(DEV_CSS_HEADER+'header.min.css', { read: true, allowEmpty: true })
+    gulp.src(DEV.CSS.ROOT+'header.min.css', { read: true, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_SCSS_HEADER)
+    return gulp.src(SRC.SCSS.HEADER)
         .pipe(scss())
         .pipe(autoprefixer({
             overrideBrowserslist: AUTOPREFIXER_BROWSERS,
@@ -129,16 +132,16 @@ gulp.task('scss_header', function () {
         .pipe(cleanCss({ compatibility: 'ie8' })) // Минификация css
         .pipe(concat('header.css'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(DEV_CSS_HEADER))
+        .pipe(gulp.dest(DEV.CSS.ROOT))
         .pipe(bs.stream());
 });
 
 gulp.task('scss_footer', function () {
     //сначала очистка
-    gulp.src(DEV_CSS_FOOTER+'footer.min.css', { read: true, allowEmpty: true })
+    gulp.src(DEV.CSS.ROOT+'footer.min.css', { read: true, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_SCSS_FOOTER, {allowEmpty: true })
+    return gulp.src(SRC.SCSS.FOOTER, {allowEmpty: true })
         .pipe(scss())
         .pipe(autoprefixer({
             overrideBrowserslist: AUTOPREFIXER_BROWSERS,
@@ -149,16 +152,16 @@ gulp.task('scss_footer', function () {
         .pipe(cleanCss({ compatibility: 'ie8' })) // Минификация css 
         .pipe(concat('footer.css'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(DEV_CSS_FOOTER))
+        .pipe(gulp.dest(DEV.CSS.ROOT))
         .pipe(bs.stream());
 });
 
 gulp.task('scss_vendor_header', function () {
     //сначала очистка
-    gulp.src(DEV_CSS_VENDOR+'header.min.css', { read: true, allowEmpty: true })
+    gulp.src(DEV.CSS.VENDOR+'header.min.css', { read: true, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_SCSS_VENDOR_HEADER)
+    return gulp.src(SRC.SCSS.VENDOR.HEADER)
         .pipe(scss())
         .pipe(autoprefixer({
             overrideBrowserslist: AUTOPREFIXER_BROWSERS,
@@ -169,16 +172,16 @@ gulp.task('scss_vendor_header', function () {
         .pipe(cleanCss({ compatibility: 'ie8' })) // Минификация css 
         .pipe(concat('header.css'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(DEV_CSS_VENDOR))
+        .pipe(gulp.dest(DEV.CSS.VENDOR))
         .pipe(bs.stream());
 });
 
 gulp.task('scss_vendor_footer', function () {
     //сначала очистка
-    gulp.src(DEV_CSS_VENDOR+'footer.min.css', { read: true, allowEmpty: true })
+    gulp.src(DEV.CSS.VENDOR+'footer.min.css', { read: true, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_SCSS_VENDOR_FOOTER, { allowEmpty: true })
+    return gulp.src(SRC.SCSS.VENDOR.FOOTER, { allowEmpty: true })
         .pipe(scss())
         .pipe(autoprefixer({
             overrideBrowserslist: AUTOPREFIXER_BROWSERS,
@@ -189,68 +192,68 @@ gulp.task('scss_vendor_footer', function () {
         .pipe(cleanCss({ compatibility: 'ie8' })) // Минификация css 
         .pipe(concat('footer.css'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(DEV_CSS_VENDOR))
+        .pipe(gulp.dest(DEV.CSS.VENDOR))
         .pipe(bs.stream());
 });
 
 gulp.task('js_vendor_header', function () {
     //сначала очистка
-    gulp.src(DEV_JS_VENDOR+'header.min.js', { read: false, allowEmpty: true })
+    gulp.src(DEV.JS.VENDOR+'header.min.js', { read: false, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_JS_VENDOR_HEADER, { allowEmpty: true })
+    return gulp.src(SRC.JS.VENDOR.HEADER, { allowEmpty: true })
         .pipe(concat('header.js'))
         .pipe(babel({
             presets: ['@babel/env']
         }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
-        .pipe(gulp.dest(DEV_JS_VENDOR));
+        .pipe(gulp.dest(DEV.JS.VENDOR));
 });
 
 gulp.task('js_vendor_footer', function () {
     //сначала очистка
-    gulp.src(DEV_JS_VENDOR+'footer.min.js', { read: false, allowEmpty: true })
+    gulp.src(DEV.JS.VENDOR+'footer.min.js', { read: false, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_JS_VENDOR_FOOTER, { allowEmpty: true })
+    return gulp.src(SRC.JS.VENDOR.FOOTER, { allowEmpty: true })
         .pipe(concat('footer.js'))
         .pipe(babel({
             presets: ['@babel/env']
         }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
-        .pipe(gulp.dest(DEV_JS_VENDOR));
+        .pipe(gulp.dest(DEV.JS.VENDOR));
 });
 
 gulp.task('js_header', function () {
     //сначала очистка
-    gulp.src(DEV_JS_HEADER+'header.js', { read: false, allowEmpty: true })
+    gulp.src(DEV.JS.ROOT+'header.js', { read: false, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_JS_HEADER)
+    return gulp.src(SRC.JS.HEADER)
         .pipe(concat('header.js'))
         .pipe(babel({
             presets: ['@babel/env']
         }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
-        .pipe(gulp.dest(DEV_JS_HEADER));
+        .pipe(gulp.dest(DEV.JS.ROOT));
 });
 
 gulp.task('js_footer', function () {
     //сначала очистка
-    gulp.src(DEV_JS_FOOTER+'footer.min.js', { read: false, allowEmpty: true })
+    gulp.src(DEV.JS.ROOT+'footer.min.js', { read: false, allowEmpty: true })
         .pipe(clean());
 
-    return gulp.src(SRC_JS_FOOTER)
+    return gulp.src(SRC.JS.FOOTER)
         .pipe(concat('footer.js'))
         .pipe(babel({
             presets: ['@babel/env']
         }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
-        .pipe(gulp.dest(DEV_JS_FOOTER));
+        .pipe(gulp.dest(DEV.JS.ROOT));
 });
 
 //очистка старых изображений
@@ -288,19 +291,19 @@ gulp.task('run_server', function (done) {
     bs.init({ // browser sync
         server: DEV.ROOT
     });
-    gulp.watch(SRC_SCSS_HEADER, gulp.series('scss_header'));
-    gulp.watch(SRC_SCSS_FOOTER, gulp.series('scss_footer'));
-    gulp.watch(SRC_SCSS_VENDOR_HEADER, gulp.series('scss_vendor_header'));
-    gulp.watch(SRC_SCSS_VENDOR_FOOTER, gulp.series('scss_vendor_footer'));
-    gulp.watch(SRC_JS_VENDOR_HEADER, gulp.series('js_vendor_header'));
-    gulp.watch(SRC_JS_VENDOR_FOOTER, gulp.series('js_vendor_footer'));
-    gulp.watch(SRC_JS_HEADER, gulp.series('js_header'));
-    gulp.watch(SRC_JS_FOOTER, gulp.series('js_footer'));
-    gulp.watch(SRC.FILES, gulp.series('moveFiles'));
+    gulp.watch(SRC.SCSS.HEADER, gulp.series('scss_header'));
+    gulp.watch(SRC.SCSS.FOOTER, gulp.series('scss_footer'));
+    gulp.watch(SRC.SCSS.VENDOR.HEADER, gulp.series('scss_vendor_header'));
+    gulp.watch(SRC.SCSS.VENDOR.FOOTER, gulp.series('scss_vendor_footer'));
+    gulp.watch(SRC.JS.VENDOR.HEADER, gulp.series('js_vendor_header'));
+    gulp.watch(SRC.JS.VENDOR.FOOTER, gulp.series('js_vendor_footer'));
+    gulp.watch(SRC.JS.HEADER, gulp.series('js_header'));
+    gulp.watch(SRC.JS.FOOTER, gulp.series('js_footer'));
+    gulp.watch(SRC.FILES, gulp.series('move_files'));
     done();
 });
 
-gulp.task('default', gulp.series('clean_dev', 'minhtml', 'moveFiles', 'scss_vendor_header', 'scss_vendor_footer', 'scss_header', 'scss_footer', 'js_vendor_header', 'js_vendor_footer', 'js_header', 'js_footer', 'imagemin', 'ewebp', 'run_server'));
+gulp.task('default', gulp.series('clean_dev', 'minhtml', 'move_files', 'scss_vendor_header', 'scss_vendor_footer', 'scss_header', 'scss_footer', 'js_vendor_header', 'js_vendor_footer', 'js_header', 'js_footer', 'imagemin', 'ewebp', 'run_server'));
 
 
 
