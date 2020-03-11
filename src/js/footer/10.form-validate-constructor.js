@@ -4,7 +4,6 @@
    * @param {'#confirmPassword'} selectorConfirmPassword 
    * @param {'correct'} classCorrect 
    * @param {'error'} classError 
-   * @param {'visible'} classVisible
    */
   function ValidateForm( selectorEmail, selectorPassword, selectorConfirmPassword, selectorPasswordNotice, classCorrect, classError ) {
 

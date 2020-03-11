@@ -1,4 +1,3 @@
-
   let validateForm = new ValidateForm('#email', '#password', '#confirmPassword', '#passwordNotice', 'correct', 'error', 'visible');
 
 
@@ -31,5 +30,3 @@
   $('#confirmPassword').on( "focusout, keyup", function(e){    
     validateForm.setPassword( 2, $(this).val() );  
   });
-
-
